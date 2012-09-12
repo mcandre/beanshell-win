@@ -1,0 +1,12 @@
+# Run inside of a Visual Studio command line environment
+CC = "cl" # Replace with your compiler
+DELETE = "del"
+EXECUTABLE = "bsh.exe"
+
+all: bsh.c join.h
+	$(DELETE) $(EXECUTABLE)
+	$(CC) /EHsc /D WIN32 bsh.c /Fe$(EXECUTABLE)
+	$(DELETE) *.obj
+
+clean:
+	$(DELETE) $(EXECUTABLE)
